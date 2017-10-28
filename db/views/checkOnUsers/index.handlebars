@@ -1,25 +1,21 @@
-<div style="color:black;">
+<div style="color:black;"><center>
 <h1>Check on users</h1>
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      {{#each allUsers}}
+
+      {{#each allUsers}}<center>
         <div class="post-preview col-xs-12">
             <h2 class="post-title">
-              <div class="col-xs-6">
-                {{this.firstName}} {{this.lastName}}
+             <br>
+              <div class="col-xs-12">
+                <ul>{{this.firstName}} {{this.lastName}} {{this.status}} <br> </ul> <br>
               </div>
             </h2>
-          </a>
-            
-          
-            <h1>{{this.status}}</h1>
-          
         </div>
-        <br>
-        
+                   
+        </center>
      {{/each}}
-    </div>
+
    </div>
-  </div>
+  </div></center>
 </div>
