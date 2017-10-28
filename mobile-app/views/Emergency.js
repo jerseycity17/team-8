@@ -22,15 +22,17 @@ export class CEmergencies extends React.Component {
    
   render() {
     let emergencies = [];
-    fetch('https://jamesw8.github.io/docs/test.json')
+    fetch('http://localhost:8000/user/Broadcast/1/emergency')
     .then((json) => {
       console.log(json);    
       new Promise((resolve, reject) => {
-        emergencies = JSON.parse(json['_bodyText'])['found'];
+        resolve(JSON.parse(json['_bodyText'])['found']);
       }).then(() => {
-        emergencies = emergencies.map(emergency => {
-          return {title: emergency['createdAt'], data: emergency['description']};
-        });
+        new Promise((resolve, reject) => {
+          resolve(emergencies.map(emergency => {
+            return {title: emergency['createdAt'], data: emergency['description']};
+          }));
+        }).then(() => console.log('o',emergencies));
       });
     });
     

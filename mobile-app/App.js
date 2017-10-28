@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Switch } from 'react-native';
 import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
-import { viewB } from './views/Emergency';
+import { CEmergencies } from './views/Emergency';
 
 import { dashboard, viewEmergency, viewWarning, viewCheckIn, viewEmergencyCall } from './views/Dashboard';
 import { viewCountryBrief } from './views/SecurityBrief';
@@ -32,7 +32,7 @@ class Login extends React.Component {
 
   successfulLogin() {
     const { navigate } = this.props.navigation;
-    navigate('ViewB');
+    navigate('ViewDashboard');
   }
 
   render() {
@@ -59,7 +59,7 @@ class Login extends React.Component {
           maxLength={16}
           onChangeText={(password) => this.setState({password})}
         />
-        { this.state.invalidLogin &&
+        { false &&
         <FormValidationMessage
           containerStyle={{
             marginTop: -30,
@@ -88,11 +88,11 @@ const Navigator = StackNavigator({
   Login: {
     screen: Login,
   },
-  ViewB: {
+  ViewDashboard: {
     screen: dashboard,
   },
   ViewEmergency: {
-    screen: viewEmergency,
+    screen: CEmergencies,
   },
   ViewWarning: {
     screen: viewWarning,
@@ -109,9 +109,9 @@ const Navigator = StackNavigator({
   ViewEmergencyCall: {
     screen: viewEmergencyCall,
   },
-  ViewEmergencyCall: {
+  /*ViewEmergencyCall: {
     screen: viewNotifyAdmin,
-  }
+  }*/
 });
 
 const styles = StyleSheet.create({
