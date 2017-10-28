@@ -10,5 +10,6 @@ router.use('/sendNotification', require('./sendNotification'));
 router.use('/checkOnUsers', require('./checkOnUsers'));
 router.use('/user', require('./user'));
 router.use('/admin', require('./admin'));
+router.use('/depolyment', require('./depolyment'));
 
 module.exports = router;
