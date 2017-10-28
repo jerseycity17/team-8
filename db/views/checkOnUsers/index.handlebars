@@ -1,3 +1,27 @@
 <div style="color:black;">
 <h1>Check on users</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      {{#each allUsers}}
+        <div class="post-preview col-xs-12">
+            <h2 class="post-title">
+              <div class="col-xs-4">
+                {{this.firstname}} {{this.lastName}}
+              </div>
+            </h2>
+          </a>
+            <p1 class="col-xs-5">{{this.deploymentType}}</p1>
+          <!-- {{#if this.checkedin}} -->
+            <h1 style="color:green;">Checked In<h1>
+          <!-- {{ else }} -->
+            <h1 style="color:#8B0000 ;">Pending<h1>
+          <!-- {{/if}} -->
+        </div>
+        <br>
+        
+     {{/each}}
+    </div>
+   </div>
+  </div>
 </div>
