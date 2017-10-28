@@ -2,8 +2,11 @@ import React from 'react';
 import { StyleSheet, Text, View, Switch } from 'react-native';
 import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
-import { viewDashboard, viewEmergency, viewWarning, viewInformation, viewCountryBrief, viewCheckIn, viewEmergencyCall } from './views/Dashboard';
 import { viewB } from './views/Emergency';
+
+import { dashboard, viewEmergency, viewWarning, viewCheckIn, viewEmergencyCall } from './views/Dashboard';
+import { viewCountryBrief } from './views/SecurityBrief';
+import { viewInformation } from './views/Information';
 
 class Login extends React.Component {
   constructor(props) {
@@ -86,7 +89,7 @@ const Navigator = StackNavigator({
     screen: Login,
   },
   ViewB: {
-    screen: viewB,
+    screen: dashboard,
   },
   ViewEmergency: {
     screen: viewEmergency,
@@ -105,6 +108,9 @@ const Navigator = StackNavigator({
   },
   ViewEmergencyCall: {
     screen: viewEmergencyCall,
+  },
+  ViewEmergencyCall: {
+    screen: viewNotifyAdmin,
   }
 });
 
