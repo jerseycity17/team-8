@@ -18,6 +18,8 @@ router.post('/', (req, res) => {
 router.post('/mobile', (req, res) => {
   models.Users.findOne({where: {email: req.body.email}}).then((user) => {
     res.json({status: 'OK', id: user.id});
+  }).catch((err) => {
+    console.log(err)
   })
 });
 

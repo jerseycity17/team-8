@@ -4,9 +4,10 @@ const models = require('../models');
 
 router.get('/', Redirect.ifNotLoggedIn(), (req, res) => {
   models.Users.findAll().then((allUsers) => {
-  	
-    res.render('checkOnUsers', { allUsers});
-  });
+    res.render('checkOnUsers' , {allUsers});
+  }).catch((err) => {
+    console.log(err)
+  })
 });
 
 

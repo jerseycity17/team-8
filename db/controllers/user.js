@@ -7,12 +7,20 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/Broadcasts', (req, res) => {
-  models.Users.findAll({where: {id: req.user_id}}).then( (user) => {
-    models.Broadcasts.findAll().then((broadcasts) => {
-      res.json({found: broadcasts});
+router.get('/Broadcasts/:userId/:type', (req, res) => {
+  if (req.params.type) {
+    models.Users.findAll({where: {id: req.params.userId, task: req.params.type}}).then( (user) => {
+      models.Broadcasts.findAll().then((broadcasts) => {
+        res.json({found: broadcasts});
+      });
     });
-  });
+  } else {
+    models.Users.findAll({where: {id: req.params.userId}}).then( (user) => {
+      models.Broadcasts.findAll().then((broadcasts) => {
+        res.json({found: broadcasts});
+      });
+    });
+  };
 });
 
 router.post('/checkin', (req, res) => {
