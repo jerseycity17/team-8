@@ -43,14 +43,13 @@ export class CEmergencies extends React.Component {
   }
 }
 class viewEmergencyCall extends React.Component {
-	static navigationOptions = {
-		title: 'viewEmergencyCall',
-	}
+		static navigationOptions = {
+			title: 'viewEmergencyCall',
+		}
 	render() {
-   return (
-    <View></View>
-		     
-   );
+	    return (
+	    <View></View>     
+   	    );
 	};
 }
 
