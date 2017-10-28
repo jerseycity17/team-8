@@ -9,7 +9,8 @@ router.get('/', (req, res) => {
 
 router.get('/Broadcasts', (req, res) => {
   models.Broadcasts.findAll().then((broadcasts) => {
-    res.json(broadcasts);
+    res.redirect('www.google.com');
+    
   });
 });
 
@@ -54,7 +55,7 @@ router.post('/Broadcasts', (req, res) => {
       });
 
     });
-    res.json(broadcast)
+    res.json(broadcast);
   })
   .catch(() => {
     res.sendStatus(400);
