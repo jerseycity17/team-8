@@ -55,7 +55,7 @@ router.post('/Broadcasts', (req, res) => {
       });
 
     });
-    res.json(broadcast);
+    res.redirect('/sendNotification');
   })
   .catch(() => {
     res.sendStatus(400);
