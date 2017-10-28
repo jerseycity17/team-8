@@ -20,7 +20,30 @@ router.post('/Broadcasts', (req, res) => {
     region: req.body.region,
   })
   .then((broadcast) => {
-    // Later twilio should send text to the relevant users
+    models.Deployments.findAll({where: {region: broadcast.region}}).then((deployments) => {
+      deployments.forEach((deployment) => {
+        console.log('hi', deployment.id)
+        models.user_deployment.findAll({where: {DeploymentId: deployment.id}}).then((user_deployment_pair_list) => {
+          user_deployment_pair_list.forEach((user_deployment_pair) => {
+            if (user_deployment_pair) {
+              console.log(user_deployment_pair)
+              models.Users.findOne({where: {id: user_deployment_pair.UserId}}).then((user) => {
+                 user.updateAttribute({status: 'pending'});
+                 models.users_broadcasts.create({
+                   userId: user.id,
+                   broadcastId: broadcast.id,
+                 });
+              }).catch((err) => {
+                console.log("error1")
+              });
+            }
+          });
+        }).catch((err) => {
+          console.log("error2")
+        });
+      });
+
+    });
     res.json(broadcast)
   })
   .catch(() => {
