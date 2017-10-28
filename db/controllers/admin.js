@@ -4,19 +4,25 @@ const models = require('../models');
 router.get('/', (req, res) => {
   models.Users.findAll().then((users) => {
     res.json(users);
-  });
+  }).catch((err) => {
+    console.log(err)
+  })
 });
 
 router.get('/Broadcasts', (req, res) => {
   models.Broadcasts.findAll().then((broadcasts) => {
     res.json(broadcasts);
-  });
+  }).catch((err) => {
+    console.log(err)
+  })
 });
 
 router.get('/Broadcasts/view/:id', (req, res) => {
   models.users_broadcasts.findAll({where: {BroadcastId: req.params.id}}).then((row) => {
     res.json(rows);
-  });
+  }).catch((err) => {
+    console.log(err)
+  })
 });
 
 router.post('/Broadcasts', (req, res) => {
@@ -86,5 +92,14 @@ router.post('/Deployment/assign', (req, res) => {
     res.sendStatus(400);
   })
 });
+
+router.get('/Deployment', (req, res) => {
+  models.Deployment.findAll().then((deployments) => {
+    res.json(deployment);
+  }).catch((err) => {
+    console.log(err)
+  })
+});
+
 
 module.exports = router;
