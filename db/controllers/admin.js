@@ -13,6 +13,12 @@ router.get('/Broadcasts', (req, res) => {
   });
 });
 
+router.get('/Broadcasts/view', (req, res) => {
+  models.users_broadcasts.findAll({where: {BroadcastId: req.body.broadcastId}}).then((row) => {
+    res.json(rows);
+  });
+});
+
 router.post('/Broadcasts', (req, res) => {
   models.Broadcasts.create({
     type: req.body.type,
