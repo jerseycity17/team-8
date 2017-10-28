@@ -14,8 +14,8 @@ router.get('/Broadcasts', (req, res) => {
   });
 });
 
-router.get('/Broadcasts/view', (req, res) => {
-  models.users_broadcasts.findAll({where: {BroadcastId: req.body.broadcastId}}).then((row) => {
+router.get('/Broadcasts/view/:id', (req, res) => {
+  models.users_broadcasts.findAll({where: {BroadcastId: req.params.id}}).then((row) => {
     res.json(rows);
   });
 });

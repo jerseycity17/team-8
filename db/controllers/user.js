@@ -18,10 +18,14 @@ router.get('/Broadcasts', (req, res) => {
 router.post('/checkin', (req, res) => {
   models.Users.findOne({where: {id: req.body.userId}}).then((user) => {
     user.update({status: req.body.status});
-  });
+  }).catch((err) => {
+    console.log("error")
+  })
   models.users_broadcasts.findOne({where: {UserId: req.body.userId, BroadcastId: req.body.broadcastId}}).then((row) => {
     row.update({status: req.body.status});
-  });
+  }).catch((err) => {
+    console.log("error")
+  })
   res.sendStatus(200);
 });
 
