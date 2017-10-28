@@ -7,15 +7,15 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/Broadcasts/:userId/:type', (req, res) => {
+router.get('/Broadcasts/', (req, res) => {
   if (req.params.type) {
-    models.Users.findAll({where: {id: req.params.userId, task: req.params.type}}).then( (user) => {
+    models.Users.findAll({where: {id: req.body.userId, task: req.body.type}}).then( (user) => {
       models.Broadcasts.findAll().then((broadcasts) => {
         res.json({found: broadcasts});
       });
     });
   } else {
-    models.Users.findAll({where: {id: req.params.userId}}).then( (user) => {
+    models.Users.findAll({where: {id: req.body.userId}}).then( (user) => {
       models.Broadcasts.findAll().then((broadcasts) => {
         res.json({found: broadcasts});
       });

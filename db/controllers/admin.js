@@ -1,5 +1,20 @@
 const router = require('express').Router();
 const models = require('../models');
+var request = require('request');
+
+// Set the headers
+var headers = {
+    'User-Agent':       'Super Agent/0.0.1',
+    'Content-Type':     'application/x-www-form-urlencoded'
+}
+
+// Configure the request
+var options = {
+    url: 'http://localhost:5000',
+    method: 'POST',
+    headers: headers,
+    form: {'key1': 'xxx', 'key2': 'yyy'}
+}
 
 router.get('/', (req, res) => {
   models.Users.findAll().then((users) => {
@@ -40,8 +55,6 @@ router.post('/Broadcasts', (req, res) => {
               console.log(user_deployment_pair)
               models.Users.findOne({where: {id: user_deployment_pair.UserId}}).then((user) => {
                  user.update({status: 'pending'});
-                 console.log("heeeeellloooo");
-                 console.log(user.id, broadcast.id)
                  models.users_broadcasts.create({
                    UserId: user.id,
                    BroadcastId: broadcast.id,
@@ -49,6 +62,18 @@ router.post('/Broadcasts', (req, res) => {
                  }).catch((err) => {
                    console.log(err)
                  })
+                 var options = {
+                     url: 'http://localhost:5000',
+                     method: 'POST',
+                     headers: headers,
+                     form: {'To': user.phone, 'Body': broadcast.description}
+                 }
+                 request(options, function (error, response, body) {
+                    if (!error && response.statusCode == 200) {
+                      // Print out the response body
+                      console.log(body)
+                    }
+                  })
               }).catch((err) => {
                 console.log("error1")
               });
