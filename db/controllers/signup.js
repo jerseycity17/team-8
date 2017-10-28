@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const models = require('../models');
 const Users = models.Users;
+const Redirect = require('../middlewares/redirect');
 
-router.get('/', (req, res) => {
+router.get('/', Redirect.ifLoggedIn(), (req, res) => {
   res.render('signup')
 });
 
