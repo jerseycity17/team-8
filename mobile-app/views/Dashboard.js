@@ -11,47 +11,44 @@ export class viewB extends React.Component {
       
       <View style={styles.container}>
         <Button
-          containerStyle={{
-            color: 'blue',
-          }}
           onPress={() => navigate('ViewEmergency')}
           title="Emergency"
-          color="#ff4500"
+          buttonStyle={{backgroundColor: 'red', borderRadius: 20}}
         />
    
 
         <Button
           onPress={() => navigate('ViewWarning')}
           title="Warning"
-          color="#ff4500"
+          buttonStyle={{backgroundColor: 'orange', borderRadius: 20}}
         />
         
 
         <Button
           onPress={() => navigate('ViewInformation')}
           title="Information"
-          color="#ff4500"
+          buttonStyle={{backgroundColor: 'indigo', borderRadius: 20}}
         />
         
 
         <Button
           onPress={() => navigate('ViewCountryBrief')}
           title="Country Brief"
-          color="#ff4500"
+          buttonStyle={{backgroundColor: 'green', borderRadius: 20}}
         />
         
 
         <Button
           onPress={() => navigate('ViewCheckIn')}
           title="Check In"
-          color="#ff4500"
+          buttonStyle={{backgroundColor: 'blue', borderRadius: 20}}
         />
         
 
         <Button
           onPress={() => navigate('ViewEmergencyCall')}
           title="Emergency Call"
-          color="#ff4500"
+          buttonStyle={{backgroundColor: 'red', borderRadius: 20}}
         />
       </View>
     );
