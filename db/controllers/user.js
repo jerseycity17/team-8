@@ -8,9 +8,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/Broadcasts', (req, res) => {
-  models.Users.findOne({where: {id: req.user_id}}).then( (user) => {
+  models.Users.findAll({where: {id: req.user_id}}).then( (user) => {
     models.Broadcasts.findAll().then((broadcasts) => {
-      res.json(broadcasts);
+      res.json({found: broadcasts});
     });
   });
 });
