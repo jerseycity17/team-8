@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Switch } from 'react-native';
 import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
-import { viewB, viewEmergency, viewWarning, viewInformation, viewCountryBrief, viewCheckIn, viewEmergencyCall } from './views/Dashboard';
+import { viewDashboard, viewEmergency, viewWarning, viewInformation, viewCountryBrief, viewCheckIn, viewEmergencyCall } from './views/Dashboard';
+import { viewB } from './views/Emergency';
 
-class viewA extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,7 +65,7 @@ class viewA extends React.Component {
         <Button
           buttonStyle={{backgroundColor: 'blue', borderRadius: 10}}
           onPress={() => this.submitLogin()}
-          title='Hi'
+          title='Login'
         />
       </View>
     );
@@ -81,8 +82,8 @@ export default class App extends React.Component {
 }
 
 const Navigator = StackNavigator({
-  ViewA: {
-    screen: viewA,
+  Login: {
+    screen: Login,
   },
   ViewB: {
     screen: viewB,
@@ -111,8 +112,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
   dashboard: {
     flex: 1,
