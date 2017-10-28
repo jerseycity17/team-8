@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Users.associate = (models) => {
-    models.Users.hasOne(models.Deployments);
+    models.Users.hasOne(models.Deployments, {through: 'user_deployment'});
     models.Users.belongsToMany(models.Broadcasts, { through: 'users_broadcasts'});
     //models.Users.hasToMany(models.Broadcasts, {as: 'target_user', through: users_broadcasts, foreignKey: 'userId'});
   }

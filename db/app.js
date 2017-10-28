@@ -35,7 +35,7 @@ app.use(controllers);
 
 // Load Models
 const models = require('./models');
-models.sequelize.sync({force: false})
+models.sequelize.sync({force: true})
   .then(() => {
     app.listen(PORT);
   });

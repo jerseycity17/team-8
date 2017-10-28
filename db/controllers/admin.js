@@ -28,11 +28,14 @@ router.post('/Broadcasts', (req, res) => {
               console.log(user_deployment_pair)
               models.Users.findOne({where: {id: user_deployment_pair.UserId}}).then((user) => {
                  user.update({status: 'pending'});
+                 console.log("heeeeellloooo");
+                 console.log(user.id, broadcast.id)
                  models.users_broadcasts.create({
-                   userId: user.id,
-                   broadcastId: broadcast.id,
+                   UserId: user.id,
+                   BroadcastId: broadcast.id,
+                   status: 'pending'
                  }).catch((err) => {
-                   console.log("error3")
+                   console.log(err)
                  })
               }).catch((err) => {
                 console.log("error1")
