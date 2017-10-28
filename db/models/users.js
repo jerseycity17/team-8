@@ -10,7 +10,10 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     phone: DataTypes.STRING,
-    status: 'good',
+    status: {
+      type: DataTypes.STRING,
+      defaultValue: "good",
+    }
   }, {
     getterMethods: {
       fullName() {
