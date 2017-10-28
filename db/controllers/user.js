@@ -8,8 +8,10 @@ router.get('/', (req, res) => {
 });
 
 router.get('/Broadcasts', (req, res) => {
-  models.Broadcasts.findAll().then((broadcasts) => {
-    res.json(broadcasts);
+  models.Users.findOne({where: {id: req.user_id}}).then( (user) => {
+    models.Broadcasts.findAll().then((broadcasts) => {
+      res.json(broadcasts);
+    });
   });
 });
 

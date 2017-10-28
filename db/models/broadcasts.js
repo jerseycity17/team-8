@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Broadcasts = sequelize.define('Broadcasts', {
-    type: {
+    type: { // emergency, notification, information, checkin
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
