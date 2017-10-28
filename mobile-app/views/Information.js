@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
-// Country Brief Button on Dashboard
-export class viewCountryBrief extends React.Component {
-  static navigationOptions = {
-  title: 'viewCountryBrief',
-  }
-  
-  constructor(props) {
+// Information Button on Dashboard
+export class viewInformation extends React.Component {
+static navigationOptions = {
+  title: 'viewInformation',
+}
+
+constructor(props) {
     super(props);
       this.state = {
         title: "Some Sample Title",
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   textAlign: 'center',
   fontWeight: 'bold',
   fontSize: 25,
-  color: 'green',
+  color: 'purple',
   },
   securitybriefBody: {
   textAlign: 'center',

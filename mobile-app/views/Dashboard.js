@@ -86,19 +86,7 @@ return (
 };
 }
 
-// Information Button on Dashboard
-export class viewInformation extends React.Component {
-static navigationOptions = {
-title: 'viewInformation',
-}
-render() {
-return (
-  <View style={styles.container}>
-  <Text>viewInformation is here</Text>
-  </View>
-);
-};
-}
+
 
 
 // CheckIn Button on Dashboard
