@@ -22,10 +22,11 @@ body, html {height: 100%}
   <div class="w3-display-topright w3-padding-large w3-xlarge">
      <div style="color:black;">
     {{#if cur_user}}
-
+            Sign out
     {{else}}
-        <li><a href="/login">Login</a></li>
-        <li><a href="/signup">Sign Up</a></li>
+        <a href="/login">Login</a>
+          <br>
+          <a href="/signup">Sign Up</a>
     {{/if}}
   </div>
   </div>
