@@ -7,8 +7,8 @@ export class viewB extends React.Component {
     title: 'viewB',
   }
   render() {  
+    const { navigate } = this.props.navigation;
     return (
-      
       <View style={styles.dashboard}>
         <Button
           onPress={() => navigate('ViewEmergency')}
