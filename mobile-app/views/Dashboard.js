@@ -9,46 +9,46 @@ export class viewB extends React.Component {
   render() {  
     return (
       
-      <View style={styles.container}>
+      <View style={styles.dashboard}>
         <Button
           onPress={() => navigate('ViewEmergency')}
           title="Emergency"
-          buttonStyle={{backgroundColor: 'red', borderRadius: 20}}
+          buttonStyle={{backgroundColor: 'red', borderRadius: 20, height: 75}}
         />
    
 
         <Button
           onPress={() => navigate('ViewWarning')}
           title="Warning"
-          buttonStyle={{backgroundColor: 'orange', borderRadius: 20}}
+          buttonStyle={{backgroundColor: 'orange', borderRadius: 20, height: 75}}
         />
         
 
         <Button
           onPress={() => navigate('ViewInformation')}
           title="Information"
-          buttonStyle={{backgroundColor: 'indigo', borderRadius: 20}}
+          buttonStyle={{backgroundColor: 'indigo', borderRadius: 20, height: 75}}
         />
         
 
         <Button
           onPress={() => navigate('ViewCountryBrief')}
           title="Country Brief"
-          buttonStyle={{backgroundColor: 'green', borderRadius: 20}}
+          buttonStyle={{backgroundColor: 'green', borderRadius: 20, height: 75}}
         />
         
 
         <Button
           onPress={() => navigate('ViewCheckIn')}
           title="Check In"
-          buttonStyle={{backgroundColor: 'blue', borderRadius: 20}}
+          buttonStyle={{backgroundColor: 'blue', borderRadius: 20, height: 75}}
         />
         
 
         <Button
           onPress={() => navigate('ViewEmergencyCall')}
           title="Emergency Call"
-          buttonStyle={{backgroundColor: 'red', borderRadius: 20}}
+          buttonStyle={{backgroundColor: 'red', borderRadius: 20, height: 75}}
         />
       </View>
     );
@@ -147,5 +147,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     // alignItems: 'center',
     // justifyContent: 'center',
+  },
+  dashboard: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    backgroundColor: '#fff',
   },
 });
