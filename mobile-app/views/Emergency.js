@@ -34,7 +34,7 @@ export class CEmergencies extends React.Component {
           color="#00ff00"
         />
         <Button
-          onPress={() => navigate('ViewEmergencyCall'), navigate('ViewNotifyAdmin')}
+          onPress={() => navigate('viewEmergencyCall'), navigate('viewNotifyAdmin')}
           title="Help"
           color="#ff0000"
         />
