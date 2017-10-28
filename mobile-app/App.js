@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
-import { viewB, viewEmergency, viewWarning, viewInformation, viewCheckIn, viewEmergencyCall } from './views/Dashboard';
+import { dashboard, viewEmergency, viewWarning, viewInformation, viewCheckIn, viewEmergencyCall } from './views/Dashboard';
 import { viewCountryBrief } from './views/SecurityBrief';
 
 class viewA extends React.Component {
@@ -86,7 +86,7 @@ const Navigator = StackNavigator({
     screen: viewA,
   },
   ViewB: {
-    screen: viewB,
+    screen: dashboard,
   },
   ViewEmergency: {
     screen: viewEmergency,

@@ -3,9 +3,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native-elements';
 
 // DashBoard
-export class viewB extends React.Component {
+export class dashboard extends React.Component {
 static navigationOptions = {
-title: 'viewB',
+title: 'dashboard',
 }
 render() {
 const { navigate } = this.props.navigation;
