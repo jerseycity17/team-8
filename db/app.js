@@ -8,6 +8,7 @@ const app = express();
 
 // Access Body Data
 const bodyParser = require('body-parser');
+const viewHelpers = require('./middlewares/viewHelpers')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -25,6 +26,8 @@ app.engine('handlebars', handlebars({
 }));
 app.set('view engine', 'handlebars');
 app.set('views', `${__dirname}/views/`);
+
+app.use(viewHelpers.register());
 
 // Load Controller
 const controllers = require('./controllers');
