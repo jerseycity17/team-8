@@ -1,5 +1,6 @@
 'use strict';
 
+//const users_broadcasts= require('./users_broadcasts')
 const bcrypt = require('bcrypt-nodejs');
 
 module.exports = (sequelize, DataTypes) => {
@@ -29,6 +30,8 @@ module.exports = (sequelize, DataTypes) => {
 
   Users.associate = (models) => {
     models.Users.hasOne(models.Deployments);
+    models.Users.belongsToMany(models.Broadcasts, { through: 'users_broadcasts'});
+    //models.Users.hasToMany(models.Broadcasts, {as: 'target_user', through: users_broadcasts, foreignKey: 'userId'});
   }
 
   return Users;
