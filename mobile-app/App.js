@@ -66,7 +66,7 @@ class viewA extends React.Component {
         <Button
           buttonStyle={{backgroundColor: 'blue', borderRadius: 10}}
           onPress={() => this.submitLogin()}
-          title='Hi'
+          title='Login'
         />
       </View>
     );
