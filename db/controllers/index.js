@@ -6,8 +6,8 @@ router.use('/profile', require('./profile'));
 
 router.use('/', require('./login'));
 router.use('/home', require('./home'));
-router.use('/home/sendNotification', require('./sendNotification'));
-router.use('/home/checkOnUsers', require('./checkOnUsers'));
+router.use('/sendNotification', require('./sendNotification'));
+router.use('/checkOnUsers', require('./checkOnUsers'));
 router.use('/user', require('./user'));
 router.use('/admin', require('./admin'));
 
