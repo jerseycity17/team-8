@@ -2,9 +2,9 @@
 import React from 'react';
 import { SectionList, StyleSheet, Text, View } from 'react-native';
 import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
-export class viewB extends React.Component {
+export class CEmergencies extends React.Component {
   static navigationOptions = {
-    title: 'viewB',
+    title: 'viewCEmergencies',
   }
   render() {
     var emergencies = [];
@@ -29,12 +29,12 @@ export class viewB extends React.Component {
       <View>
    	    <Text>Check In</Text>
         <Button
-          onPress={() => navigate('viewC')}
+          onPress={() => navigate('viewB')}
           title="Good"
           color="#00ff00"
         />
         <Button
-          onPress={() => navigate('ViewEmergencyCall'), navigate('ViewNotifyAdmin')}
+          onPress={() => navigate('viewEmergencyCall'), navigate('viewNotifyAdmin')}
           title="Help"
           color="#ff0000"
         />
@@ -42,9 +42,9 @@ export class viewB extends React.Component {
     );
   }
 }
-class ViewEmergencyCall extends React.Component {
+class viewEmergencyCall extends React.Component {
 	static navigationOptions = {
-		title: 'ViewEmergencyCall',
+		title: 'viewEmergencyCall',
 	}
 	render() {
    return (
@@ -54,9 +54,9 @@ class ViewEmergencyCall extends React.Component {
 	};
 }
 
-class ViewNotifyAdmin extends React.Component {
+class viewNotifyAdmin extends React.Component {
 		static navigationOptions = {
-			title: 'ViewNotifyAdmin',
+			title: 'viewNotifyAdmin',
 		}
 	render() {
 	    return (

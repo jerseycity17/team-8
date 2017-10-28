@@ -106,6 +106,9 @@ const Navigator = StackNavigator({
   },
   ViewEmergencyCall: {
     screen: viewEmergencyCall,
+  },
+  ViewEmergencyCall: {
+    screen: viewNotifyAdmin,
   }
 });
 
