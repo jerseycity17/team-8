@@ -63,11 +63,13 @@ router.post('/Broadcasts', (req, res) => {
                    console.log(err)
                  })
                  var options = {
-                     url: 'http://localhost:5000',
+                     url: 'http://0.0.0.0:5000',
                      method: 'POST',
                      headers: headers,
-                     form: {'To': user.phone, 'Body': broadcast.description}
+                     form: {'To': "+1"+user.phone, 'Body': broadcast.description}
                  }
+
+                 console.log(options)
                  request(options, function (error, response, body) {
                     if (!error && response.statusCode == 200) {
                       console.log(body)
