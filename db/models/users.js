@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     email: DataTypes.STRING,
-    password: DataTypes.STRING
+    password: DataTypes.STRING,
+    phone: DataTypes.STRING,
   }, {
     getterMethods: {
       fullName() {
@@ -25,5 +26,10 @@ module.exports = (sequelize, DataTypes) => {
       user.password = hashedPassword;
     })
   );
+
+  Users.associate = (models) => {
+    models.Users.hasOne(models.Deployments);
+  }
+
   return Users;
 };
