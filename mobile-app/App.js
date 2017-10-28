@@ -18,6 +18,7 @@ class viewA extends React.Component {
   }
 
   submitLogin() {
+    console.log('hi');
     this.setState({
       invalidLogin: true,
     });
@@ -52,7 +53,7 @@ class viewA extends React.Component {
           maxLength={16}
           onChangeText={(password) => this.setState({password})}
         />
-        { this.invalidLogin &&
+        { this.state.invalidLogin &&
         <FormValidationMessage
           containerStyle={{
             marginTop: -30,
@@ -60,7 +61,7 @@ class viewA extends React.Component {
         }
         <Button
           buttonStyle={{backgroundColor: 'blue', borderRadius: 10}}
-          onPress={() => this.submitLogin.bind(this)}
+          onPress={() => this.submitLogin()}
           title='Hi'
         />
       </View>
