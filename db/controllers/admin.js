@@ -28,6 +28,30 @@ router.post('/Broadcasts', (req, res) => {
   })
 });
 
+router.post('/deployment', (req, res) => {
+  models.Deployments.create({
+    country: req.body.country,
+    region: req.body.region,
+  })
+  .then((deployment) => {
+    res.json(deployment)
+  })
+  .catch(() => {
+    res.sendStatus(400);
+  })
+});
 
+router.post('/deployment/assign', (req, res) => {
+  models.user_deployment.create({
+    DeploymentId: req.body.deploymentId,
+    UserId: req.body.userId,
+  })
+  .then((deployment_user_pair) => {
+    res.json(deployment_user_pair)
+  })
+  .catch(() => {
+    res.sendStatus(400);
+  })
+});
 
 module.exports = router;
