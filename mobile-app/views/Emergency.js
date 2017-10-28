@@ -6,7 +6,7 @@ export class CEmergencies extends React.Component {
     title: 'viewCEmergencies',
   }
 
-  submitCheckin() {
+  submitGood() {
     fetch('http://localhost:8000/user/checkin/', {
       method: 'POST',
       headers: {
@@ -14,37 +14,52 @@ export class CEmergencies extends React.Component {
       },
       body: JSON.stringify({
         userId: 1,
-        status: 'help',
+        status: 'good',
 
       })
     }).then(response => console.log(response));
   }
-   
+ submitHelp() {
+  fetch('http://localhost:8000/user/checkin/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      userId: 1,
+      status: 'help',
+
+    })
+  }).then(response => console.log(response));
+}
   render() {
     let emergencies = [];
-    fetch('http://localhost:8000/user/Broadcast/1/emergency')
+    fetch('http://localhost:8000/user/Broadcasts/?userId=1&type=emergency')
     .then((json) => {
       console.log(json);    
       new Promise((resolve, reject) => {
-        resolve(JSON.parse(json['_bodyText'])['found']);
+        emergencies = JSON.parse(json['_bodyText'])['found'];
       }).then(() => {
-        new Promise((resolve, reject) => {
-          resolve(emergencies.map(emergency => {
-            return {title: emergency['createdAt'], data: emergency['description']};
-          }));
-        }).then(() => console.log('o',emergencies));
+            return {title: emergencies[0]['createdAt'], data: emergency[0]['description']};
       });
     });
     
     const { navigate } = this.props.navigation;
     return (
       <View>
+      
    	    <Text>Check In</Text>
         <Button 
           raised
-          onPress={() => this.submitCheckin()}
-          title="CheckIn"
+          onPress={() => this.submitGood()}
+          title="I'm good!"
           color="lightblue"
+        />
+        <Button 
+          raised
+          onPress={() => this.submitHelp()}
+          title="Help me!"
+          color="red"
         />
         <Button
           onPress={() => navigate('viewB')}
