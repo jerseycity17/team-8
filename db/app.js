@@ -3,7 +3,7 @@ const expressSession = require('express-session');
 const passport = require('./middlewares/authentication');
 
 const PORT = process.env.PORT || 8000;
-
+const flash = require('connect-flash');
 const app = express();
 
 // Access Body Data
@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressSession(({ secret: 'keyboard cat', resave: false, saveUninitialized: true })));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 app.use(express.static('./public'));
 
 // Load Views
