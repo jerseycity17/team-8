@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Button, FormLabel, FormInput } from 'react-native-elements';
+import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
 
 class viewA extends React.Component {
@@ -8,6 +8,8 @@ class viewA extends React.Component {
     super(props);
     this.state = {
       username: "",
+      password: "",
+      invalidLogin: false,
     };
   }
   
@@ -15,26 +17,50 @@ class viewA extends React.Component {
     title: 'viewA',
   }
 
-  render() {
+  submitLogin() {
+    this.setState({
+      invalidLogin: true,
+    });
+  }
+
+  successfulLogin() {
     const { navigate } = this.props.navigation;
+    navigate('ViewB');
+  }
+
+  render() {
     return (
       <View style={styles.container}>
-        <Text>viewA is here</Text>
-        <FormLabel>Username</FormLabel>
+        <FormLabel
+          containerStyle={{
+            marginTop: 150,
+          }}
+        >USERNAME</FormLabel>
         <FormInput
           autoCapitalize={'none'}
           autoCorrect={false}
-          // maxLength=
+          maxLength={16}
+          width={300}
           onChangeText={(username) => this.setState({username})}
         />
-        <FormLabel>Password</FormLabel>
+        <FormLabel>PASSWORD</FormLabel>
         <FormInput
+          containerStyle={{
+            marginBottom: 35,
+          }}
           secureTextEntry={true}
+          maxLength={16}
           onChangeText={(password) => this.setState({password})}
         />
+        { this.invalidLogin &&
+        <FormValidationMessage
+          containerStyle={{
+            marginTop: -30,
+          }}>Invalid Username/Password</FormValidationMessage>
+        }
         <Button
           buttonStyle={{backgroundColor: 'blue', borderRadius: 10}}
-          onPress={() => navigate('ViewB')}
+          onPress={() => this.submitLogin.bind(this)}
           title='Hi'
         />
       </View>
@@ -76,7 +102,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
 });
