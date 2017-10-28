@@ -7,6 +7,12 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/Broadcasts', (req, res) => {
+  models.Broadcasts.findAll().then((broadcasts) => {
+    res.json(broadcasts);
+  });
+});
+
 router.post('/Broadcasts', (req, res) => {
   models.Broadcasts.create({
     type: req.body.type,
