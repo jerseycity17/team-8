@@ -28,7 +28,7 @@ router.post('/Broadcasts', (req, res) => {
   })
 });
 
-router.post('/deployment', (req, res) => {
+router.post('/Deployment', (req, res) => {
   models.Deployments.create({
     country: req.body.country,
     region: req.body.region,
@@ -41,7 +41,7 @@ router.post('/deployment', (req, res) => {
   })
 });
 
-router.post('/deployment/assign', (req, res) => {
+router.post('/Deployment/assign', (req, res) => {
   models.user_deployment.create({
     DeploymentId: req.body.deploymentId,
     UserId: req.body.userId,
