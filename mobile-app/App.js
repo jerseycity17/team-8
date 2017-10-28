@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
+import { viewB, viewEmergency, viewWarning, viewInformation, viewCountryBrief, viewCheckIn, viewEmergencyCall } from './views/Dashboard';
 
 class viewA extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class viewA extends React.Component {
   }
   
   static navigationOptions = {
-    title: 'viewA',
+    title: 'Login',
   }
 
   submitLogin() {
@@ -22,6 +23,7 @@ class viewA extends React.Component {
     this.setState({
       invalidLogin: true,
     });
+    this.successfulLogin();
   }
 
   successfulLogin() {
@@ -70,147 +72,13 @@ class viewA extends React.Component {
 }
 
 
-// DashBoard
-class viewB extends React.Component {
-  static navigationOptions = {
-    title: 'viewB',
-  }
-  render() {  
-    return (
-      
-      <View style={styles.container}>
-        // Emergency Button
-        <Button
-          onPress={() => navigate('ViewEmergency')}
-          title="Emergency"
-          color="#ff4500"
-        />
-   
-        // Warning Button
-        <Button
-          onPress={() => navigate('ViewWarning')}
-          title="Warning"
-          color="#ff4500"
-        />
-        
-        // Information Button
-        <Button
-          onPress={() => navigate('ViewInformation')}
-          title="Information"
-          color="#ff4500"
-        />
-        
-        // Country Brief Button
-        <Button
-          onPress={() => navigate('ViewCountryBrief')}
-          title="Country Brief"
-          color="#ff4500"
-        />
-        
-        // Check In Button
-        <Button
-          onPress={() => navigate('ViewCheckIn')}
-          title="Check In"
-          color="#ff4500"
-        />
-        
-        // Emergency Call
-        <Button
-          onPress={() => navigate('ViewEmergencyCall')}
-          title="Emergency Call"
-          color="#ff4500"
-        />
-      </View>
-    );
-  };
-}
-
-
-// Emergency Button on Dashboard
-class viewEmergency extends React.Component {
-  static navigationOptions = {
-    title: 'viewEmergency',
-  }
-  render() {  
-    return (
-      <View style={styles.container}>
-        <Text>viewEmergency is here</Text>
-      </View>
-      
-    );
-  };
-}
-
-// Warnings Button on Dashboard
-class viewWarning extends React.Component {
-  static navigationOptions = {
-    title: 'viewWarning',
-  }
+export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>viewWarning is here</Text>
-      </View>
+      <Navigator />
     );
-  };
-}
-
-// Information Button on Dashboard
-class viewInformation extends React.Component {
-  static navigationOptions = {
-    title: 'viewInformation',
   }
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>viewInformation is here</Text>
-      </View>
-    );
-  };
 }
-
-// Country Brief Button on Dashboard
-class viewCountryBrief extends React.Component {
-  static navigationOptions = {
-    title: 'viewCountryBrief',
-  }
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>viewCountryBrief is here</Text>
-      </View>
-    );
-  };
-}
-
-// CheckIn Button on Dashboard
-class viewCheckIn extends React.Component {
-  static navigationOptions = {
-    title: 'viewCheckIn',
-  }
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>viewCheckIn is here</Text>
-      </View>
-    );
-  };
-}
-
-// Emergency Call Button on Dashboard
-class viewEmergencyCall extends React.Component {
-  static navigationOptions = {
-    title: 'viewEmergencyCall',
-  }
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>viewEmergencyCall is here</Text>
-      </View>
-    );
-  };
-}
-
 
 const Navigator = StackNavigator({
   ViewA: {
@@ -237,16 +105,7 @@ const Navigator = StackNavigator({
   ViewEmergencyCall: {
     screen: viewEmergencyCall,
   }
-  
 });
-
-export default class App extends React.Component {
-  render() {
-    return (
-      <Navigator />
-    );
-  }
-}
 
 const styles = StyleSheet.create({
   container: {
