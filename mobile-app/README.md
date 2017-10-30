@@ -3,7 +3,6 @@ Rescue Team8s provides a mobile application for field agents of the Internationa
 
 It consists of:
 - A cross-platform mobile application for receiving crucial safety information
-- A web application for administrative access with an API for field agents
 
 The mobile application was created in React Native.
 
